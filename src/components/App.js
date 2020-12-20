@@ -133,7 +133,7 @@ class App extends React.Component {
         <Editor
           fileName={file.name}
           content={file.content}
-          colorScheme={this.props.mode}
+          colorScheme={this.props.theme}
         />
       </Tab>
     )
@@ -178,10 +178,8 @@ class App extends React.Component {
   }
 
   render() {
-    const colorClass = `${this.props.mode}-mode`
-
     return (
-      <div className={`app ${colorClass}`}>
+      <div className="app">
         <div className="resize-overlay" />
         <ExplorerPanel
           onSelectFile={this.onSelectFile}
@@ -205,11 +203,7 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-  mode: PropTypes.oneOf(['dark', 'light'])
-}
-
-App.defaultProps = {
-  mode: 'light'
+  theme: PropTypes.oneOf(['dark', 'light']).isRequired
 }
 
 export default App
